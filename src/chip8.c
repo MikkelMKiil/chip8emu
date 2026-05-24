@@ -33,13 +33,39 @@ void chip8_init(Chip8 *c) {
 void chip8_emulate_cycle(Chip8 *c){
     uint16_t opcode = (c->memory[c->PC] << 8) | c->memory[c->PC+1];
     c->PC += 2;
-    switch (opcode & OP_FAMILY_MASK)
-    {
-    case 0x0000:
-        if(opcode == OP_CLS) 
-        break;
-    
-    default:
-        break;
+    switch (opcode & OP_FAMILY_MASK) {
+        case 0x0000:
+            if (opcode == OP_CLS) {
+                op_cls(c);
+            } else if (opcode == OP_RET) {
+                op_ret(c);
+            }
+            break;
+        case OP_JP:
+            op_jp(c, opcode);
+            break;
+        case OP_CALL:
+            op_call(c, opcode);
+            break;
+        case OP_SE:
+            op_se(c, opcode);
+            break;
+        case OP_SNE:
+            op_sne(c, opcode);
+            break;
+        case OP_LD:
+            op_ld(c, opcode);
+            break;
+        case OP_ADD:
+            op_add_nc(c, opcode);
+            break;
+        case OP_LDI:
+            op_ldi(c, opcode);
+            break;
+        case OP_DRW:
+            op_drw(c, opcode);
+            break;
+        default:
+            break;
     }
 }
