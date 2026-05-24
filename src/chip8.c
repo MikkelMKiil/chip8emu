@@ -33,28 +33,13 @@ void chip8_init(Chip8 *c) {
 void chip8_emulate_cycle(Chip8 *c){
     uint16_t opcode = (c->memory[c->PC] << 8) | c->memory[c->PC+1];
     c->PC += 2;
-    // ClS || Clear Screen
-    switch (opcode & OP_FAMILY_MASK) {
-        
+    switch (opcode & OP_FAMILY_MASK)
+    {
     case 0x0000:
-    if(opcode == 0x00E0){
-        for (int i = 0; i < DISPLAY_HEIGHT; i++) {
-            for (int j = 0; j < DISPLAY_WIDTH; j++) {
-                c->display[i][j] = 0;    
-            }
-        }
-        c->draw_flag = 1;
-    }
-    else if(opcode == 0x00EE){
-
-    }
-    break;
+        if(opcode == OP_CLS) 
+        break;
     
     default:
         break;
-    }
-    // JP || Jump / Goto?
-    if((opcode & 0xF000) == 0x1000){
-        c->PC = opcode & 0x0FFF;
     }
 }
