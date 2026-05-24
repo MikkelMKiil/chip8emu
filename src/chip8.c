@@ -31,12 +31,10 @@ void chip8_init(Chip8 *c) {
 }
 int chip8_load_rom(Chip8 *c, const char *path){
     FILE *f = fopen(path, "rb");
+    fseek(f, 0, SEEK_END);
     long size = ftell(f);
-    if(size > (MEMORY_SIZE - PROGRAM_START)){
-        fclose(f);
-        return 1;
-    }
-    size_t read = fread(&c->memory[PROGRAM_START], 1, (size_t)size, f);
+    fseek(f, 0, SEEK_SET);
+    fread(&c->memory[PROGRAM_START], 1, (size_t)size, f);
     fclose(f);
     return 0;
 }
