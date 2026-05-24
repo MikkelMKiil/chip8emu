@@ -23,5 +23,16 @@
 #define OP_KK_MASK   0x00FF
 #define OP_N_MASK    0x000F
 
+int op_cls(Chip8 *c);
+int op_call(Chip8 *c, uint16_t opcode);
+int op_ret(Chip8 *c);
+int op_jp(Chip8 *c, uint16_t opcode);
+int op_ld(Chip8 *c, uint16_t opcode);
+int op_ldi(Chip8 *c, uint16_t opcode);
+int op_add_nc(Chip8 *c, uint16_t opcode);
+int op_add(Chip8 *c);
+int op_drw(Chip8 *c, uint16_t opcode);
+int op_se(Chip8 *c, uint16_t opcode);
+int op_sne(Chip8 *c, uint16_t opcode);
 
 #endif
