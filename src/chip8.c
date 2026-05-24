@@ -29,8 +29,15 @@ void chip8_init(Chip8 *c) {
     memcpy(&c->memory[FONT_START], font, sizeof(font));
     c->PC = PROGRAM_START;
 }
-int chip8_load_rom(Chip8 *c){
-    
+int chip8_load_rom(Chip8 *c, const char *path){
+    FILE *f = fopen(path, "rb");
+    long size = ftell(f);
+    if(size > (MEMORY_SIZE - PROGRAM_START)){
+        fclose(f);
+        return 1;
+    }
+    size_t read = fread(&c->memory[PROGRAM_START], 1, (size_t)size, f);
+    fclose(f);
     return 0;
 }
 void chip8_emulate_cycle(Chip8 *c){
