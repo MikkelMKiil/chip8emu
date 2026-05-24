@@ -29,7 +29,10 @@ void chip8_init(Chip8 *c) {
     memcpy(&c->memory[FONT_START], font, sizeof(font));
     c->PC = PROGRAM_START;
 }
-
+int chip8_load_rom(Chip8 *c){
+    
+    return 0;
+}
 void chip8_emulate_cycle(Chip8 *c){
     uint16_t opcode = (c->memory[c->PC] << 8) | c->memory[c->PC+1];
     c->PC += 2;
