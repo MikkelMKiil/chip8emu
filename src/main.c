@@ -1,4 +1,5 @@
 #include"chip8.h"
+#include"display.h"
 #include<time.h>
 
 int main(int argc, char *argv[]){
@@ -15,6 +16,10 @@ int main(int argc, char *argv[]){
             struct timespec start;
             clock_gettime(CLOCK_MONOTONIC, &start);
             chip8_emulate_cycle(&chip);
+            if(chip.draw_flag == 1){
+                draw(&chip);
+                chip.draw_flag = 0;
+            }
             struct timespec end;
             clock_gettime(CLOCK_MONOTONIC, &end);
             long long elapsed = (end.tv_sec - start.tv_sec) * 1000000000L + (end.tv_nsec - start.tv_nsec);

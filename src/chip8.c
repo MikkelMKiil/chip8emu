@@ -39,6 +39,7 @@ int chip8_load_rom(Chip8 *c, const char *path){
     return 0;
 }
 void chip8_emulate_cycle(Chip8 *c){
+
     uint16_t opcode = (c->memory[c->PC] << 8) | c->memory[c->PC+1];
     c->PC += 2;
     switch (opcode & OP_FAMILY_MASK) {
@@ -77,3 +78,4 @@ void chip8_emulate_cycle(Chip8 *c){
             break;
     }
 }
+void 
