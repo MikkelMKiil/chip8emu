@@ -40,8 +40,25 @@ int op_jp(Chip8 *c, uint16_t opcode){
 //TODO, implement error catching for op_ld.
 int op_ld(Chip8 *c, uint16_t opcode){
     uint8_t data = opcode & OP_KK_MASK;
-    uint8_t i = opcode & OP_X_MASK;
+    uint8_t i = (opcode & OP_X_MASK) >> 8;
     c->V[i] = data;
     return 0;
-
+}
+//TODO, also needs bounds check like the others, op_ldi.
+int op_ldi(Chip8 *c, uint16_t opcode){
+    uint16_t addr = opcode & OP_ADDR_MASK;
+    c->I = addr; 
+    return 0;
+}
+int op_add(Chip8 *c){
+    return 0;
+}
+int op_drw(Chip8 *c){
+    return 0;
+}
+int op_se(Chip8 *c){
+    return 0;
+}
+int op_sne(Chip8 *c){
+    return 0;
 }
