@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// defines how to construct a char.
+// draw the font yo.
 static const uint8_t font[80] = {
     0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
     0x20, 0x60, 0x20, 0x20, 0x70, // 1
