@@ -78,4 +78,7 @@ void chip8_emulate_cycle(Chip8 *c){
             break;
     }
 }
-void 
+void chip8_update_timers(Chip8 *c){
+    if(c->delay_timer > 0) c->delay_timer--;
+    if(c->sound_timer > 0) c->sound_timer--;
+}

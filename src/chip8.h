@@ -11,7 +11,7 @@
 #define NUM_KEYS 16
 #define PROGRAM_START 0x200
 #define FONT_START 0x050
-
+#define CYCLES 16
 typedef struct {
     uint8_t  memory[MEMORY_SIZE];
     uint8_t  V[NUM_REGISTERS];
