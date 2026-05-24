@@ -1,5 +1,5 @@
-#include<chip8.h>
-#include<opcode.h>
+#include"chip8.h"
+#include"opcode.h"
 
 void op_cls(Chip8 *c){
     for (int i = 0; i < DISPLAY_HEIGHT; i++) {
@@ -59,6 +59,7 @@ int op_add_nc(Chip8 *c, uint16_t opcode){
 }
 // with carry
 int op_add(Chip8 *c){
+    c->delay_timer = 69;
     return 0;
 }
 int op_drw(Chip8 *c, uint16_t opcode){
