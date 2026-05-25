@@ -7,7 +7,7 @@ A simple Chip-8 emulator written in C99 for macOS. It currently runs the IBM Log
 
 The display is ASCII-based (not SDL), and opcode coverage is incomplete. The main goal was to refresh my C skills.
 
-## Build
+## Step 1. Compile
 
 From the repository root:
 
@@ -15,7 +15,7 @@ From the repository root:
 make
 ```
 
-## Run
+## Step 2. Run your script ( or test )
 
 ```bash
 ./chip8 ./"YOUR FOLDER HERE"/"YOUR PROGRAM HERE".ch8
