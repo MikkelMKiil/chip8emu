@@ -17,12 +17,15 @@ make
 
 ## Step 2. Run your script ( or test )
 
+Fill in the blanks here to run an arbitrary file.
 ```bash
-./chip8 ./"YOUR FOLDER HERE"/"YOUR PROGRAM HERE".ch8
+./build/chip8 ./"YOUR FOLDER"/"YOUR FILE".ch8
 ```
+
 Test example, should work out of the box.
+
 ```bash
-./chip8 ./tests/IBM.ch8
+./build/chip8 ./tests/IBM.ch8
 ```
 
 ## Notes
