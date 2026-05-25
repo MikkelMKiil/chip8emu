@@ -18,6 +18,10 @@ make
 ## Run
 
 ```bash
+./chip8 ./"YOUR FOLDER HERE"/"YOUR PROGRAM HERE".ch8
+```
+Test example, should work out of the box.
+```bash
 ./chip8 ./tests/IBM.ch8
 ```
 
